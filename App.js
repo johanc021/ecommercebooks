@@ -1,20 +1,38 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { ActivityIndicator, StyleSheet, View } from "react-native";
+import Categories from "./src/screens/Categories.jsx";
+import BooksByCategory from "./src/screens/BooksByCategory.jsx";
+import { useFonts } from "expo-font"
+import { useState } from "react";
+import { colors } from "./src/global/colors.js";
 
 export default function App() {
+  const [genderSelected, setGenderSelected] = useState('')
+
+  const [fontLoaded] = useFonts({
+    'Lato-Regular': require('./assets/fonts/Lato-Regular.ttf'),
+    'Lato-Bold': require('./assets/fonts/Lato-Bold.ttf'),
+  })
+  if (!fontLoaded) return <ActivityIndicator />
+
+  const onSelectGender = (gender) => {
+    setGenderSelected(gender)
+  }
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <>
+      <View style={styles.layout}>
+        {genderSelected ?
+          <BooksByCategory gender={genderSelected} />
+          :
+          <Categories onSelectGenderEvent={onSelectGender} />}
+      </View>
+
+    </>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+  layout: {
+    backgroundColor: colors.layout.background,
+    height: "100%"
+  }
+})
