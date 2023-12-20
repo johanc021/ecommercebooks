@@ -1,14 +1,16 @@
 import { View, StyleSheet, FlatList } from "react-native";
 import React from "react";
-import Header from "../components/Header.jsx";
+/* import Header from "../components/Header.jsx"; */
 import booksData from "../data/books_data.json";
 import BookItem from "../components/BookItem.jsx";
 import { useState, useEffect } from "react";
 import Search from "../components/Search.jsx";
 
-const BooksByCategory = ({ gender }) => {
+const BooksByCategory = ({ navigation, route }) => {
   const [booksByGender, setBooksByGender] = useState([]);
   const [search, setSearch] = useState("");
+
+  const { gender } = route.params;
 
   useEffect(() => {
     const booksFilterByGender = booksData.filter(
@@ -25,11 +27,13 @@ const BooksByCategory = ({ gender }) => {
     setSearch(search);
   };
 
-  const renderBookItem = ({ item }) => <BookItem book={item} />;
+  const renderBookItem = ({ item }) => (
+    <BookItem book={item} navigation={navigation} />
+  );
 
   return (
     <>
-      <Header title={"Libros por categoría"} />
+      {/* <Header title={"Libros por categoría"} /> */}
       <Search onSearchHandlerEvent={onSearch} />
       <FlatList
         data={booksByGender}

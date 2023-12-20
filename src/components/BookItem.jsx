@@ -1,9 +1,12 @@
 import { Text, TouchableOpacity, StyleSheet, Image, View } from "react-native";
 import { colors } from "../global/colors.js";
 
-const BookItem = ({ book }) => {
+const BookItem = ({ navigation, book }) => {
   return (
-    <TouchableOpacity style={styles.containerBookItem}>
+    <TouchableOpacity
+      style={styles.containerBookItem}
+      onPress={() => navigation.navigate("Detalle", book.id)}
+    >
       <View>
         <Image
           style={styles.bookImage}

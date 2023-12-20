@@ -1,23 +1,17 @@
 import { StyleSheet, FlatList } from "react-native";
 import { useEffect, useState } from "react";
-import Header from "../components/Header.jsx";
+/* import Header from "../components/Header.jsx"; */
 import categoriesData from "../data/categories_data.json";
 import GenderBook from "../components/GenderBook.jsx";
-import Search from "../components/Search.jsx";
 
-const Categories = ({ onSelectGenderEvent }) => {
+const Categories = ({ navigation }) => {
   const renderCategoryItem = ({ item }) => {
-    return (
-      <GenderBook
-        gender={item}
-        onSelectGenderEvent={onSelectGenderEvent}
-      ></GenderBook>
-    );
+    return <GenderBook gender={item} navigation={navigation}></GenderBook>;
   };
 
   return (
     <>
-      <Header title="Libros por categorías" />
+      {/* <Header title="Libros por categorías" /> */}
       <FlatList
         data={categoriesData}
         renderItem={renderCategoryItem}

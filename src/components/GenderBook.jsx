@@ -3,9 +3,9 @@ import React from "react";
 import Card from "./Card.jsx";
 import { colors } from "../global/colors.js";
 
-const GenderItem = ({ gender, onSelectGenderEvent }) => {
+const GenderItem = ({ gender, navigation }) => {
   return (
-    <TouchableOpacity onPress={() => onSelectGenderEvent(gender)}>
+    <TouchableOpacity onPress={() => navigation.navigate("books", { gender })}>
       <Card style={styles.cardContainer}>
         <Text style={styles.cardText}>--- {gender} ---</Text>
       </Card>

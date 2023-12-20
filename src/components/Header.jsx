@@ -1,10 +1,14 @@
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 import { colors } from "../global/colors.js";
+import { AntDesign } from "@expo/vector-icons";
 
-const Header = ({ title }) => {
+const Header = ({ navigation, title }) => {
   return (
     <View style={styles.containerPrimary}>
       <View style={styles.headerContainer}>
+        <TouchableOpacity onPress={navigation.goBack} style={styles.backButton}>
+          <AntDesign name="arrowleft" size={28} color="white" />
+        </TouchableOpacity>
         <Text style={styles.headerTitle}>{title}</Text>
       </View>
     </View>
@@ -19,7 +23,7 @@ const styles = StyleSheet.create({
   },
   headerContainer: {
     height: 100,
-    justifyContent: "center",
+    flexDirection: "row",
     alignItems: "center",
     backgroundColor: colors.primary,
     borderBottomLeftRadius: 25,
@@ -27,9 +31,16 @@ const styles = StyleSheet.create({
     shadowColor: "#030712",
     elevation: 25,
   },
+  backButton: {
+    position: "absolute",
+    zIndex: 1,
+    paddingLeft: 15,
+  },
   headerTitle: {
+    flex: 1,
     color: "#d1fae5",
     fontFamily: colors.fonts.secondary,
     fontSize: 23,
+    textAlign: "center",
   },
 });

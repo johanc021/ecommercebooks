@@ -2,6 +2,7 @@ export const colors = {
 
     primary: "#ef4444",
     secondary: "#f4f4f5",
+    price: "#475569",
 
     layout: {
         background: "#f4f4f5"
@@ -14,5 +15,6 @@ export const colors = {
     card: {
         background: "#fff",
         shadow: "#8a817c"
-    }
+    },
+    error: '#ef4444'
 }
