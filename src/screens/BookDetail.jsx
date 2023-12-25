@@ -86,6 +86,7 @@ const styles = StyleSheet.create({
     marginTop: 10,
     alignItems: "center",
     minWidth: 300,
+    marginBottom: 95,
   },
   detailContainer: {
     marginTop: 10,

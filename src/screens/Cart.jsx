@@ -32,7 +32,7 @@ const CartScreen = () => {
         keyExtractor={(item) => item.id}
       />
       <View style={styles.cartConfirm}>
-        <Text style={styles.totalPrice}>Total: USD {total}</Text>
+        <Text style={styles.totalPrice}>Total: COP {total}</Text>
         <TouchableOpacity style={styles.confirmButton} onPress={null}>
           <Text style={styles.textConfirm}>Confirmar</Text>
         </TouchableOpacity>
@@ -56,15 +56,15 @@ const styles = StyleSheet.create({
   },
   totalPrice: {
     fontSize: 16,
-    fontFamily: "Karla-Bold",
+    fontFamily: colors.fonts.secondary,
   },
   confirmButton: {
-    backgroundColor: colors.secondary,
+    backgroundColor: colors.buyButton,
     padding: 10,
     borderRadius: 10,
   },
   textConfirm: {
-    fontFamily: "Karla-Bold",
+    fontFamily: colors.fonts.secondary,
     fontSize: 16,
     color: "#fff",
   },

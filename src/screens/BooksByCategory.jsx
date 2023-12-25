@@ -36,6 +36,7 @@ const BooksByCategory = ({ navigation, route }) => {
       {/* <Header title={"Libros por categoría"} /> */}
       <Search onSearchHandlerEvent={onSearch} />
       <FlatList
+        style={styles.flatBooksByCategories}
         data={booksByGender}
         renderItem={renderBookItem}
         keyExtractor={(item) => item.id}
@@ -46,4 +47,8 @@ const BooksByCategory = ({ navigation, route }) => {
 
 export default BooksByCategory;
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  flatBooksByCategories: {
+    marginBottom: 95,
+  },
+});
