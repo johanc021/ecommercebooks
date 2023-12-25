@@ -1,7 +1,8 @@
 import { ActivityIndicator, StyleSheet, View } from "react-native";
 import { useFonts } from "expo-font"
 import { colors } from "./src/global/colors.js";
-import Navigator from "./src/navigation/Navigator.jsx";
+import ShopNavigator from "./src/navigation/ShopNavigator.jsx";
+import TabNavigator from "./src/navigation/TabNavigator.jsx";
 
 export default function App() {
 
@@ -12,7 +13,7 @@ export default function App() {
   if (!fontLoaded) return <ActivityIndicator />
 
   return (
-    <Navigator />
+    <TabNavigator />
   );
 }
 
